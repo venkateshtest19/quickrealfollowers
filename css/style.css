@@ -1036,3 +1036,30 @@ footer {
     margin: 0 10px 10px 0;
   }
 }
+/* ===== COMPLIANCE NOTICE ===== */
+.compliance-notice {
+  padding: 40px 0;
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.notice-card {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+  border-radius: 8px;
+  padding: 25px 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.notice-card h3 {
+  color: #92400e;
+  margin-bottom: 12px;
+  font-size: 1.3rem;
+}
+
+.notice-card p {
+  color: #78350f;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
