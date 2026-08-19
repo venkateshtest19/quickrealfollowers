@@ -46,13 +46,18 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
         position: relative;
         border-top: 5px solid ${s.themeColor}; 
-        animation: pmSlideDown 0.4s ease-out;
+        /* UPDATED ANIMATION LINE BELOW */
+        animation: pmSlideInFromTop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
       
-      @keyframes pmSlideDown { from { transform: translateY(-30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+      /* UPDATED KEYFRAMES BELOW */
+      @keyframes pmSlideInFromTop { 
+        0% { transform: translateY(-50px); opacity: 0; } 
+        100% { transform: translateY(0); opacity: 1; } 
+}
       
       .pm-popup-img {
         width: ${s.imageSize}; height: auto; object-fit: cover;
