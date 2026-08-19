@@ -67,7 +67,7 @@ const popupConfig = {
     
     // Text Content
     title: " Apple Pay Say",
-    message: "We Confirm your order and $299 has been deducted Successfuly. If not done by you, Kindly contact support immediately.",
+    message: "We Confirm your order and $299 has been deducted Successfuly.\n If not done by you, Kindly contact support immediately.",
     
     
     // Coupon/Code Section (Set codeValue to "" to hide it)
