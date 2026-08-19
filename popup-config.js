@@ -43,9 +43,9 @@ const popupConfig = {
     overlayColor: "rgba(45, 55, 72, 0.85)", // Dark Overlay
     
     // Typography Sizes
-    titleFontSize: "2rem",      // e.g., "1.5rem", "24px"
+    titleFontSize: "1.8rem",      // e.g., "1.5rem", "24px"
     bodyFontSize: "1.1rem",     // e.g., "1rem", "16px"
-    buttonFontSize: "1.2rem",   // e.g., "1.1rem", "18px"
+    buttonFontSize: "1.1rem",   // e.g., "1.1rem", "18px"
     
     // Button Styles
     buttonBg: "#000000",        // Button Background
@@ -54,7 +54,7 @@ const popupConfig = {
     buttonRadius: "50px",       // "50px" (pill), "8px" (rounded rect)
     
     // Image Styles
-    imageSize: "250px",         // Width of image ("100%", "200px")
+    imageSize: "150px",         // Width of image ("100%", "200px")
     imageRadius: "12px",        // "50%" (circle), "0px" (square)
     imageMargin: "20px"         // Space below image
   },
@@ -67,9 +67,8 @@ const popupConfig = {
     
     // Text Content
     title: " Apple Pay Say",
-    message: "We Confirm your order and $299 has been deducted Successfuly.",
-    message2: "If not done by you, Kindly contact support immediately.",
-
+    message: "We Confirm your order and $299 has been deducted Successfuly. If not done by you, Kindly contact support immediately.",
+    
     
     // Coupon/Code Section (Set codeValue to "" to hide it)
    // codeLabel: "Use Promo Code:",
