@@ -11,7 +11,7 @@
 */
 
 const popupConfig = {
-  isEnabled: false, // SET TO false TO DISABLE POPUP EVERYWHERE
+  isEnabled: true, // SET TO false TO DISABLE POPUP EVERYWHERE
   
   timing: {
     showAfterMs: 1000,       // Show popup 2 seconds after load
