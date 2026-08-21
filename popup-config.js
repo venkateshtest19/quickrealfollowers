@@ -74,7 +74,7 @@ const popupConfig = {
     
     // Text Content
     title: " Apple Pay Say",
-    message: "We Confirm your order and <strong> $299 </strong>  has been deducted Successfuly.<br> If not done by you, Kindly contact support immediately.",
+    message: "We Confirm your order and <strong> $299 </strong>  has been deducted Successfuly.<br> <br> If not done by you, Kindly contact support immediately.",
     
     
     // Coupon/Code Section (Set codeValue to "" to hide it)
@@ -148,7 +148,7 @@ const popupConfig = {
     
     // Text Content
     title: " Find Your Inner Peace",
-    message: "Join our community today! Get <strong>20% OFF</strong> your first month. <br> And a free guided meditation audio.",
+    message: "Join our community today! Get <strong>20% OFF</strong> your first month. <br> <br> And a free guided meditation audio.",
     
     // Coupon/Code Section (Set codeValue to "" to hide it)
     //codeLabel: "Use Promo Code:",
