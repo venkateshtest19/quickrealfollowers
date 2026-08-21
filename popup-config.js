@@ -12,7 +12,7 @@
 
 const popupConfig = {
   isEnabled: true,          // SET TO false TO DISABLE ALL POPUPS
-  activePopupId: 1,         // CHOOSE: 1 for Popup 1 Apple, 2 for Popup 2 Meditation
+  activePopupId: 2,         // CHOOSE: 1 for Popup 1 Apple, 2 for Popup 2 Meditation
 
   // Array of Popup Definitions
   popups: [
