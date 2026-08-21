@@ -1,24 +1,31 @@
 /* 
   =========================================
-  DYNAMIC POPUP LOADER ENGINE
-  Reads ALL styles and layout from popup-config.js
+  MULTI-POPUP LOADER ENGINE
+  Reads specific popup data based on activePopupId
   =========================================
 */
 
 (function() {
   document.addEventListener('DOMContentLoaded', function() {
     
-    // 1. Check Config
+    // 1. Check Config & Select Active Popup
     if (typeof popupConfig === 'undefined' || !popupConfig.isEnabled) return;
+    
+    // Determine which popup object to use (Index is ID - 1)
+    const activeIndex = popupConfig.activePopupId - 1;
+    const currentPopup = popupConfig.popups[activeIndex];
 
-    const l = popupConfig.layout;
-    const s = popupConfig.styling;
-    const c = popupConfig.content;
+    // If the selected ID doesn't exist, stop
+    if (!currentPopup) return;
+
+    const l = currentPopup.layout;
+    const s = currentPopup.styling;
+    const c = currentPopup.content;
+    const t = currentPopup.timing;
 
     // 2. Create Dynamic CSS based on Config
     const style = document.createElement('style');
     
-    // Determine alignment based on position
     let justify = "center";
     let align = "center";
     if(l.position === "bottom-right") { justify = "flex-end"; align = "flex-end"; }
@@ -30,7 +37,7 @@
         background: ${s.overlayColor}; z-index: 99999;
         display: flex; justify-content: ${justify}; align-items: ${align};
         opacity: 0; visibility: hidden; transition: opacity 0.3s ease;
-        padding: 20px; /* Prevents touching edges on mobile */
+        padding: 20px;
       }
       .pm-popup-overlay.pm-visible { opacity: 1; visibility: visible; }
       
@@ -40,24 +47,22 @@
         border-radius: ${l.borderRadius};
         width: ${l.width}; 
         height: ${l.height};
-        max-height: 90vh; /* Prevents scrolling issues on small screens */
-        overflow-y: auto; /* Allows scrolling if content is too long */
+        max-height: 90vh;
+        overflow-y: auto;
         text-align: center;
         box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
         position: relative;
         border-top: 5px solid ${s.themeColor}; 
-        /* UPDATED ANIMATION LINE BELOW */
         animation: pmSlideInFromTop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         display: flex;
         flex-direction: column;
         justify-content: center;
       }
       
-      /* UPDATED KEYFRAMES BELOW */
       @keyframes pmSlideInFromTop { 
         0% { transform: translateY(-50px); opacity: 0; } 
         100% { transform: translateY(0); opacity: 1; } 
-}
+      }
       
       .pm-popup-img {
         width: ${s.imageSize}; height: auto; object-fit: cover;
@@ -155,18 +160,18 @@
     `;
     document.body.appendChild(overlay);
 
-    // 4. Logic: Show & Timer
+    // 4. Logic: Show & Timer using Current Popup's Timing
     const closeBtn = document.getElementById('pm-close-x');
     
     setTimeout(() => {
       overlay.classList.add('pm-visible');
-    }, popupConfig.timing.showAfterMs);
+    }, t.showAfterMs);
 
     setTimeout(() => {
       closeBtn.classList.add('pm-active');
       closeBtn.removeAttribute('disabled');
       closeBtn.onclick = closePMPopup;
-    }, popupConfig.timing.showAfterMs + popupConfig.timing.enableCloseAfterMs);
+    }, t.showAfterMs + t.enableCloseAfterMs);
 
     window.closePMPopup = function() {
       overlay.classList.remove('pm-visible');
